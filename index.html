@@ -49,6 +49,20 @@
             height: 150px;
             resize: vertical;
         }
+        .email-option {
+            display: inline-block;
+            margin: 5px 5px 0 0;
+            padding: 8px 10px;
+            background-color: #005580;
+            color: #ffffff;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .email-option:hover {
+            background-color: #004060;
+        }
         button {
             width: 100%;
             padding: 10px;
@@ -74,6 +88,13 @@
                 <input type="email" id="toEmail" placeholder="destinatario@exemplo.com">
             </div>
 
+            <!-- Quadradinhos com e-mails pré-definidos -->
+            <div>
+                <div class="email-option" onclick="setEmail('pedroivanpimenta@hotmail.com')">pedroivanpimenta@hotmail.com</div>
+                <div class="email-option" onclick="setEmail('pedroivanpfagundes@gmail.com')">pedroivanpfagundes@gmail.com</div>
+                <div class="email-option" onclick="setEmail('felipeqburian@gmail.com')">felipeqburian@gmail.com</div>
+            </div>
+
             <!-- Campo para o Assunto -->
             <div class="form-group">
                 <label for="subject">Assunto do E-mail</label>
@@ -90,7 +111,13 @@
             <button type="button" onclick="sendEmail()">Enviar E-mail</button>
         </form>
     </div>
+
 <script>
+    function setEmail(email) {
+        // Função que insere o e-mail no input de destinatário
+        document.getElementById('toEmail').value = email;
+    }
+
     function sendEmail() {
         const toEmail = document.getElementById('toEmail').value || '4avalon1989@gmail.com';
         const subject = document.getElementById('subject').value || 'Sem Assunto';
@@ -112,7 +139,5 @@
         .catch(error => alert('Erro ao enviar e-mail: ' + error));
     }
 </script>
-
-   
 </body>
 </html>
